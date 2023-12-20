@@ -47,7 +47,10 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece");
 		}
-		;
+		if (!board.piece(position).isThereAnyPossibleMove()) {
+			throw new ChessException("Não há jogadas possiveis");
+		}
+
 	}
 
 	private void placeNewPiece(char colum, int row, ChessPiece piece) {
